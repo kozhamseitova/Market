@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet(name = "SignIn")
 public class SignIn extends HttpServlet {
@@ -29,6 +30,7 @@ public class SignIn extends HttpServlet {
             if(user.getPassword().equals(password)){
                 HttpSession session = request.getSession(true);
                 session.setAttribute("user",user);
+                session.setAttribute("email", email);
                 response.sendRedirect(request.getContextPath() + "/jsp/main.jsp");
             }else{
 

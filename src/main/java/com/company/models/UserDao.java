@@ -63,4 +63,22 @@ public class UserDao implements IUserDao {
         }
         return null;
     }
+
+    @Override
+    public long getUserIdByEmail(String email) {
+        try {
+            String sql = "SELECT id FROM users WHERE email = ? LIMIT 1";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getLong("id");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return 0;
+    }
+
+
 }

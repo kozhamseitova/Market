@@ -50,4 +50,28 @@
         <servlet-name>ShoppingCart</servlet-name>
         <url-pattern>/shopCart</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Buy</servlet-name>
+        <servlet-class>com.company.controllers.Buy</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Buy</servlet-name>
+        <url-pattern>/buy</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LogOut</servlet-name>
+        <servlet-class>com.company.controllers.LogOut</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogOut</servlet-name>
+        <url-pattern>/logOut</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>BuyButServlet</servlet-name>
+        <servlet-class>com.company.controllers.BuyButServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuyButServlet</servlet-name>
+        <url-pattern>/buyBut</url-pattern>
+    </servlet-mapping>
 </web-app>

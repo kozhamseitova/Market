@@ -22,7 +22,7 @@ public class ProductsService {
         LinkedList<Products> bracelets = new LinkedList<>();
 
         bracelets.add(new Products(1,"jsp/img/goldBracelet.png", "Gold bracelet", 200000.00));
-        bracelets.add(new Products(2,"jsp/img/goldRollBr.png", "Gold bracelet with diamond roll", 150000.00));
+        bracelets.add(new Products(2,"jsp/img/goldRollBr.png", "Gold diamond roll", 150000.00));
         bracelets.add(new Products(3,"jsp/img/coupleBr.png", "Couple bracelets", 400000.00));
 
         return bracelets;
@@ -32,7 +32,7 @@ public class ProductsService {
 
         LinkedList<Products> neckEar = new LinkedList<>();
 
-        neckEar.add(new Products(1,"jsp/img/diamondNE.png", "Diamond necklace and earrings", 200000.00));
+        neckEar.add(new Products(1,"jsp/img/diamondNE.png", "Diamond", 200000.00));
         neckEar.add(new Products(2,"jsp/img/goldNE.png", "Gold jewelry", 150000.00));
         neckEar.add(new Products(3,"jsp/img/BlackNE.png", "Jewelry with black stones", 400000.00));
 
