@@ -31,7 +31,7 @@ public class SignIn extends HttpServlet {
 
                 Cookie ck=new Cookie("email",email);
                 response.addCookie(ck);
-                response.sendRedirect(request.getContextPath() + "/jsp/main.jsp");
+                response.sendRedirect(request.getContextPath() + "/add");
             }else{
 
                 writer.append("Incorrect username or password!");

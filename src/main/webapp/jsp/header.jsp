@@ -14,11 +14,11 @@
 <body>
 <header class="text-gray-700 body-font">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="${pageContext.request.contextPath}/jsp/main.jsp">
+        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="${pageContext.request.contextPath}/add">
             <img src="${pageContext.request.contextPath}/jsp/img/logo.png" class="w-20 h-20 text-white p-2 "><span>PINK SHOP</span>
         </a>
         <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <a class="mr-5 hover:text-gray-900" href="${pageContext.request.contextPath}/jsp/main.jsp">Main</a>
+            <a class="mr-5 hover:text-gray-900" href="${pageContext.request.contextPath}/add">Main</a>
             <%
                 if(session.getAttribute("user")!=null){
 

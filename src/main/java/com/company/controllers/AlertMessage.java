@@ -20,6 +20,8 @@ public class AlertMessage extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
+        String hello = getInitParameter("message");
+
         String nameProduct = request.getParameter("name");
         Double price = Double.parseDouble(request.getParameter("price"));
 
@@ -37,7 +39,7 @@ public class AlertMessage extends HttpServlet {
                     String s = cookie.getValue();
                     String d = "date";
                     if(s.equals(email)){
-                        out.print(cookie.getValue()+"<h4> Thank you for purchasing from our online store! </h4>");
+                        out.print(hello + ", " + cookie.getValue()+"<h4> Thank you for purchasing from our online store! </h4>");
                         out.println("Product name: " + nameProduct + " Product price: " + price);
                         Cookie ck = null;
                         if(cookies!=null)

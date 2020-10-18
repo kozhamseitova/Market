@@ -85,6 +85,10 @@
     <servlet>
         <servlet-name>AlertMessage</servlet-name>
         <servlet-class>com.company.controllers.AlertMessage</servlet-class>
+        <init-param>
+            <param-name>message</param-name>
+            <param-value>Hello</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>AlertMessage</servlet-name>
@@ -99,11 +103,19 @@
         <url-pattern>/showUsers</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>Sort</servlet-name>
-        <servlet-class>com.company.controllers.Sort</servlet-class>
+        <servlet-name>Down</servlet-name>
+        <servlet-class>com.company.controllers.Down</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Sort</servlet-name>
-        <url-pattern>/sort</url-pattern>
+        <servlet-name>Down</servlet-name>
+        <url-pattern>/down</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Addresses</servlet-name>
+        <servlet-class>com.company.controllers.Addresses</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Addresses</servlet-name>
+        <url-pattern>/add</url-pattern>
     </servlet-mapping>
 </web-app>
