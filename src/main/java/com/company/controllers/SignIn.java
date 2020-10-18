@@ -5,10 +5,7 @@ import com.company.models.UserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -30,7 +27,10 @@ public class SignIn extends HttpServlet {
             if(user.getPassword().equals(password)){
                 HttpSession session = request.getSession(true);
                 session.setAttribute("user",user);
-                session.setAttribute("email", email);
+                session.setMaxInactiveInterval(60);
+
+                Cookie ck=new Cookie("email",email);
+                response.addCookie(ck);
                 response.sendRedirect(request.getContextPath() + "/jsp/main.jsp");
             }else{
 

@@ -74,4 +74,36 @@
         <servlet-name>BuyButServlet</servlet-name>
         <url-pattern>/buyBut</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Shop</servlet-name>
+        <servlet-class>com.company.controllers.Shop</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Shop</servlet-name>
+        <url-pattern>/shop</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AlertMessage</servlet-name>
+        <servlet-class>com.company.controllers.AlertMessage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AlertMessage</servlet-name>
+        <url-pattern>/alert</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShowUsers</servlet-name>
+        <servlet-class>com.company.controllers.ShowUsers</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowUsers</servlet-name>
+        <url-pattern>/showUsers</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Sort</servlet-name>
+        <servlet-class>com.company.controllers.Sort</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Sort</servlet-name>
+        <url-pattern>/sort</url-pattern>
+    </servlet-mapping>
 </web-app>

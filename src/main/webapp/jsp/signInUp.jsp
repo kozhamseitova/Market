@@ -15,7 +15,7 @@
         $( document ).ready(function() {
                 var a = false;
                 var b = false;
-                $("#signIn").on("click", function () {
+                $("#signIn").on("click", function () {//onclick Sign in div appears or disappears
                     if (a == false) {
                         $("#in").css("display", "block")
                         $("#up").css("display", "none")
@@ -26,7 +26,7 @@
                         a = false;
                     }
                 });
-                $("#signUp").on("click", function () {
+                $("#signUp").on("click", function () {//onclick Sign up div appears or disappears
                     if (a == false) {
                         $("#up").css("display", "block")
                         $("#in").css("display", "none")

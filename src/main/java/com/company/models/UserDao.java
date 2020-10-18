@@ -4,6 +4,7 @@ package com.company.models;
 import com.company.models.interfaces.IUserDao;
 
 import java.sql.*;
+import java.util.HashMap;
 
 public class UserDao implements IUserDao {
 
@@ -78,6 +79,27 @@ public class UserDao implements IUserDao {
             ex.printStackTrace();
         }
         return 0;
+    }
+
+    @Override
+    public HashMap<Long, String> getAllUsers() {
+        try {
+            String sql = "SELECT user_id, email FROM users";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            HashMap<Long, String> users = new HashMap<>();
+            while (rs.next()) {
+                User user = new User(
+                        rs.getLong("id"),
+                        rs.getString("email")
+                );
+                users.put(user.getId(), user.getEmail());
+            }
+            return users;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 
 

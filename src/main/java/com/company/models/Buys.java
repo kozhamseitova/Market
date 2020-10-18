@@ -1,6 +1,6 @@
 package com.company.models;
 
-public class Buys {
+public class Buys extends ShoppingCart {
     private long user_id;
     private int id;
     private String img;

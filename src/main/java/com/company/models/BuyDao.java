@@ -1,25 +1,25 @@
 package com.company.models;
 
-import com.company.models.interfaces.IShopCartDao;
+import com.company.models.interfaces.IBuyDao;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ShopCartDao implements IShopCartDao {
-    Connection conn;
-    private static ShopCartDao instance = null;
+public class BuyDao implements IBuyDao {
 
-    public static ShopCartDao getInstance(){
+    Connection conn;
+    private static BuyDao instance = null;
+
+    public static BuyDao getInstance(){
         if(instance == null){
-            instance = new ShopCartDao();
+            instance = new BuyDao();
         }
         return instance;
     }
 
 
-    private ShopCartDao(){
+    private BuyDao(){
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -30,10 +30,11 @@ public class ShopCartDao implements IShopCartDao {
             e.printStackTrace();
         }
     }
+
     @Override
-    public void addProductsToShopCart(ShoppingCart shoppingCart) {
+    public void addProductsToBuy(ShoppingCart shoppingCart) {
         try {
-            String sql = "INSERT INTO shopcart(user_id, id, img, name, price) " +
+            String sql = "INSERT INTO buy(user_id, id, img, name, price) " +
                     "VALUES(?, ?, ?, ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setLong(1, shoppingCart.getUser_id());
@@ -48,39 +49,27 @@ public class ShopCartDao implements IShopCartDao {
     }
 
     @Override
-    public List getProductsFromShopCartByUserId(long user_id) {
+    public List getProductsFromBuyByUserId(long user_id) {
         try {
-            String sql = "SELECT * FROM shopcart WHERE user_id = ? ";
+            String sql = "SELECT * FROM buy WHERE user_id = ? ";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setLong(1, user_id);
             ResultSet rs = stmt.executeQuery();
-            LinkedList<ShoppingCart> shoppingCarts = new LinkedList<>();
+            LinkedList<Buys> buys = new LinkedList<>();
             while (rs.next()) {
-                ShoppingCart shoppingCart = new ShoppingCart(
+                Buys buy = new Buys(
                         rs.getLong("user_id"),
                         rs.getInt("id"),
                         rs.getString("img"),
                         rs.getString("name"),
                         rs.getDouble("price")
                 );
-                shoppingCarts.add(shoppingCart);
+                buys.add(buy);
             }
-            return shoppingCarts;
+            return buys;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return null;
-    }
-
-    @Override
-    public void removeAllFromShop(long user_id) {
-        try {
-            String sql = "DELETE * FROM shopcart WHERE user_id = ?";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setLong(1, user_id);
-            ResultSet rs = stmt.executeQuery();
-        }catch (SQLException ex){
-            ex.printStackTrace();
-        }
     }
 }

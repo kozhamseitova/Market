@@ -1,6 +1,6 @@
 package com.company.models;
 
-public class ShoppingCart {
+public class ShoppingCart{
     private long user_id;
     private int id;
     private String img;

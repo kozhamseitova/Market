@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.company.models.ShopCartDao" %><%--
   Created by IntelliJ IDEA.
   User: Acer
   Date: 17.10.2020
@@ -19,24 +19,22 @@
 </head>
 <body>
 <%@include file="header.jsp"%>
-<section class="text-gray-700 body-font overflow-hidden">
-    <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-wrap -m-12">
-            <div class="p-12 md:w-1/2 flex flex-col items-start">
-                <span class="inline-block py-1 px-3 rounded bg-pink-100 text-pink-500 text-sm font-medium tracking-widest">SHOPPING CART</span>
-                <c:set var="shopCarts" value='${requestScope["shopCarts"]}' />
+<h3 style="color: hotpink; text-align: center;font-size: 60px;">Shopping Cart</h3>
+<div class="container px-5 py-24 mx-auto" style="margin-left: 5%; margin-top: -5%">
+    <div class="flex flex-wrap -m-12">
+        <c:set var="shopCarts" value='${requestScope["shopCarts"]}' />
 
-                <c:forEach items="${shopCarts}" var="shopCart">
-                    <div class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-200 mt-auto w-full">
-                        <img alt="" style="width: 25%;" src="${shopCart.img}">
-                        <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">${shopCart.name}</h2>
-                        <p class="text-base text-hotpink-600">Price:  <span class="text-base text-gray-700">${shopCart.price}</span></p><br>
-                        <a class="text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg" href="<%=request.getContextPath()%>/buyBut?user_id=${shopCart.user_id}&id=${shopCart.id}&img=${shopCart.img}&name=${shopCart.name}&price=${shopCart.price}">Buy</a>
-                    </div>
-                </c:forEach>
+        <c:forEach items="${shopCarts}" var="shopCart">
+            <div class="p-12 md:w-1/3 flex flex-col items-start">
+                <img alt="" style="width: 25%;" src="${shopCart.img}">
+                <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">${shopCart.name}</h2>
+                <div class="w-12 h-1 bg-pink-500 rounded mt-2 mb-4"></div>
+                <p class="text-base text-hotpink-600">Price:  <span class="text-base text-gray-700">${shopCart.price}</span></p>
+                <a id="o" class="text-white bg-pink-500 border-0 py-1 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg" href="<%=request.getContextPath()%>/alert?id=${shopCart.id}&img=${shopCart.img}&name=${shopCart.name}&price=${shopCart.price}">Order</a>
+                <a id="b" class="text-white bg-pink-500 border-0 py-1 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg" href="<%=request.getContextPath()%>/buyBut?id=${shopCart.id}&img=${shopCart.img}&name=${shopCart.name}&price=${shopCart.price}">Buy</a>
             </div>
-        </div>
+        </c:forEach>
     </div>
-</section>
+</div>
 </body>
 </html>
