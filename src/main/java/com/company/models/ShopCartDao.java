@@ -73,14 +73,16 @@ public class ShopCartDao implements IShopCartDao {
     }
 
     @Override
-    public void removeAllFromShop(long user_id) {
+    public List removeFromShop(int id, long user_id) {
         try {
-            String sql = "DELETE * FROM shopcart WHERE user_id = ?";
+            String sql = "DELETE FROM shopcart WHERE id = ? and user_id = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setLong(1, user_id);
-            ResultSet rs = stmt.executeQuery();
+            stmt.setInt(1, id);
+            stmt.setLong(2, user_id);
+            return getProductsFromShopCartByUserId(user_id);
         }catch (SQLException ex){
             ex.printStackTrace();
         }
+        return null;
     }
 }

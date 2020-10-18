@@ -30,8 +30,9 @@
                 <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">${shopCart.name}</h2>
                 <div class="w-12 h-1 bg-pink-500 rounded mt-2 mb-4"></div>
                 <p class="text-base text-hotpink-600">Price:  <span class="text-base text-gray-700">${shopCart.price}</span></p>
-                <a id="o" class="text-white bg-pink-500 border-0 py-1 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg" href="<%=request.getContextPath()%>/alert?id=${shopCart.id}&img=${shopCart.img}&name=${shopCart.name}&price=${shopCart.price}">Order</a>
-                <a id="b" class="text-white bg-pink-500 border-0 py-1 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg" href="<%=request.getContextPath()%>/buyBut?id=${shopCart.id}&img=${shopCart.img}&name=${shopCart.name}&price=${shopCart.price}">Buy</a>
+                <a id="o" class="text-white bg-pink-500 border-0 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg" href="<%=request.getContextPath()%>/alert?id=${shopCart.id}&img=${shopCart.img}&name=${shopCart.name}&price=${shopCart.price}">Order</a><br>
+                <a id="b" class="text-white bg-pink-500 border-0 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg" href="<%=request.getContextPath()%>/buyBut?id=${shopCart.id}&img=${shopCart.img}&name=${shopCart.name}&price=${shopCart.price}">Buy</a><br>
+                <a class="text-white bg-pink-500 border-0 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg" href="<%=request.getContextPath()%>/remove?id=${shopCart.id}">Remove</a><br>
             </div>
         </c:forEach>
     </div>

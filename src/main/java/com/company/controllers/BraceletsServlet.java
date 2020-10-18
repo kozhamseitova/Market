@@ -10,17 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @WebServlet(name = "BraceletsServlet")
 public class BraceletsServlet extends HttpServlet {
+    Queue q = new LinkedList<Products>();
+    List<Products> bracelets = (List) q;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-        List<Products> bracelets = ProductsService.getAllBracelets();
+
+        bracelets = ProductsService.getAllBracelets();
 
         List<Products> br = ProductsService.getAllBracelets();
         Collections.sort(br, new PriceSorter());
